@@ -2,7 +2,17 @@ function verificaChute(chute){
     const numero = +chute
 
     if (chuteInvalido(numero)){
-        elementoChute.innerHTML +=  '<div> Valor inválido </div>'
+        if (chute === 'game over'){
+            document.body.innerHTML = `
+            <h2>GAME OVER!</h2>
+            <h3>O número secreto era ${numeroSecreto}</h3>
+
+            <button id="jogar-novamente" class="btn-jogar">Jogar Novamente</button>
+        `
+
+        }else {
+            elementoChute.innerHTML +=  '<div> Valor inválido </div>'
+        }
     }
 
     if (chuteForaLimite(numero)){
